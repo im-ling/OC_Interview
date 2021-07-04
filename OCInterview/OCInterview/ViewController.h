@@ -9,6 +9,7 @@
 
 @interface ViewController : UIViewController
 
++ (instancetype)sharedVC;
 
 @end
 
