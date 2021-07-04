@@ -9,7 +9,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, copy) void (^block)(void);
+@property (nonatomic, strong) void (^block)(void);
 
 @end
 
@@ -33,6 +33,15 @@
     [arr addObject:@3];
     arr = nil;
     block();
+    
+    __weak typeof(self) weakSelf = self;
+    self.block = ^ {
+        NSLog(@"%@", arr);
+    };
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSLog(@"%@", self.block);
 }
 
 
