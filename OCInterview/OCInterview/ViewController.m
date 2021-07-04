@@ -9,6 +9,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, copy) void (^block)(void);
+
 @end
 
 @implementation ViewController
