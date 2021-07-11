@@ -45,24 +45,24 @@
     if (!origMethod || !altMethod) {
         return NO;
     }
-//    BOOL didAddMethod = class_addMethod(class,origSel,
-//                                        method_getImplementation(altMethod),
-//                                        method_getTypeEncoding(altMethod));
-//
-//    if (didAddMethod) {
-//        class_replaceMethod(class,altSel,
-//                            method_getImplementation(origMethod),
-//                            method_getTypeEncoding(origMethod));
-//    } else {
+    BOOL didAddMethod = class_addMethod(class,origSel,
+                                        method_getImplementation(altMethod),
+                                        method_getTypeEncoding(altMethod));
+
+    if (didAddMethod) {
+        class_replaceMethod(class,altSel,
+                            method_getImplementation(origMethod),
+                            method_getTypeEncoding(origMethod));
+    } else {
         method_exchangeImplementations(origMethod, altMethod);
-//    }
+    }
     
     return YES;
 }
 
 - (void)sub_say{
     NSLog(@"A1");
-//    [self sub_say];
+    [self sub_say];
 }
 
 @end
@@ -84,10 +84,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[[ObjectA alloc] init] say];
+//    [[[ObjectA alloc] init] say];
     [[[ObjectA1 alloc] init] say];
     [[[ObjectA1 alloc] init] sub_say];
-    [[[ObjectA2 alloc] init] say];
+//    [[[ObjectA2 alloc] init] say];
 }
 
 
