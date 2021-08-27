@@ -16,6 +16,11 @@
 		94BC49E726922879009B15E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49E626922879009B15E9 /* main.m */; };
 		94BC49F126922879009B15E9 /* OCInterviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49F026922879009B15E9 /* OCInterviewTests.m */; };
 		94BC49FC26922879009B15E9 /* OCInterviewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49FB26922879009B15E9 /* OCInterviewUITests.m */; };
+		FE48188026D880BE00E66873 /* TestError.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48187626D880BE00E66873 /* TestError.m */; };
+		FE48188126D880BE00E66873 /* NSPointerArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48187826D880BE00E66873 /* NSPointerArray+Helper.m */; };
+		FE48188226D880BE00E66873 /* TestDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48187926D880BE00E66873 /* TestDispatch.m */; };
+		FE48188326D880BE00E66873 /* TestProxyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48187A26D880BE00E66873 /* TestProxyViewController.m */; };
+		FE48188426D880BE00E66873 /* TestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE48187B26D880BE00E66873 /* TestProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,16 @@
 		94BC49F726922879009B15E9 /* OCInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49FB26922879009B15E9 /* OCInterviewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewUITests.m; sourceTree = "<group>"; };
 		FE48187026D87EE900E66873 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE48187626D880BE00E66873 /* TestError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestError.m; sourceTree = "<group>"; };
+		FE48187726D880BE00E66873 /* TestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProxy.h; sourceTree = "<group>"; };
+		FE48187826D880BE00E66873 /* NSPointerArray+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPointerArray+Helper.m"; sourceTree = "<group>"; };
+		FE48187926D880BE00E66873 /* TestDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDispatch.m; sourceTree = "<group>"; };
+		FE48187A26D880BE00E66873 /* TestProxyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProxyViewController.m; sourceTree = "<group>"; };
+		FE48187B26D880BE00E66873 /* TestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProxy.m; sourceTree = "<group>"; };
+		FE48187C26D880BE00E66873 /* TestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestError.h; sourceTree = "<group>"; };
+		FE48187D26D880BE00E66873 /* TestDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDispatch.h; sourceTree = "<group>"; };
+		FE48187E26D880BE00E66873 /* NSPointerArray+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+Helper.h"; sourceTree = "<group>"; };
+		FE48187F26D880BE00E66873 /* TestProxyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProxyViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +117,7 @@
 		94BC49D326922876009B15E9 /* OCInterview */ = {
 			isa = PBXGroup;
 			children = (
+				FE48187526D880BE00E66873 /* proxy */,
 				FE48187026D87EE900E66873 /* Info.plist */,
 				94BC49D426922876009B15E9 /* AppDelegate.h */,
 				94BC49D526922876009B15E9 /* AppDelegate.m */,
@@ -131,6 +147,23 @@
 				94BC49FB26922879009B15E9 /* OCInterviewUITests.m */,
 			);
 			path = OCInterviewUITests;
+			sourceTree = "<group>";
+		};
+		FE48187526D880BE00E66873 /* proxy */ = {
+			isa = PBXGroup;
+			children = (
+				FE48187626D880BE00E66873 /* TestError.m */,
+				FE48187726D880BE00E66873 /* TestProxy.h */,
+				FE48187826D880BE00E66873 /* NSPointerArray+Helper.m */,
+				FE48187926D880BE00E66873 /* TestDispatch.m */,
+				FE48187A26D880BE00E66873 /* TestProxyViewController.m */,
+				FE48187B26D880BE00E66873 /* TestProxy.m */,
+				FE48187C26D880BE00E66873 /* TestError.h */,
+				FE48187D26D880BE00E66873 /* TestDispatch.h */,
+				FE48187E26D880BE00E66873 /* NSPointerArray+Helper.h */,
+				FE48187F26D880BE00E66873 /* TestProxyViewController.h */,
+			);
+			path = proxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +296,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BC49DC26922876009B15E9 /* ViewController.m in Sources */,
+				FE48188226D880BE00E66873 /* TestDispatch.m in Sources */,
+				FE48188426D880BE00E66873 /* TestProxy.m in Sources */,
 				94BC49D626922876009B15E9 /* AppDelegate.m in Sources */,
+				FE48188126D880BE00E66873 /* NSPointerArray+Helper.m in Sources */,
 				94BC49E726922879009B15E9 /* main.m in Sources */,
+				FE48188326D880BE00E66873 /* TestProxyViewController.m in Sources */,
 				94BC49D926922876009B15E9 /* SceneDelegate.m in Sources */,
+				FE48188026D880BE00E66873 /* TestError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
