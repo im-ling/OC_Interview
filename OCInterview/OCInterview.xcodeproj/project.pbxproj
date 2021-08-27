@@ -46,14 +46,12 @@
 		94BC49DE26922876009B15E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94BC49E026922879009B15E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94BC49E326922879009B15E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		94BC49E526922879009B15E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94BC49E626922879009B15E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94BC49EC26922879009B15E9 /* OCInterviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCInterviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49F026922879009B15E9 /* OCInterviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewTests.m; sourceTree = "<group>"; };
-		94BC49F226922879009B15E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94BC49F726922879009B15E9 /* OCInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49FB26922879009B15E9 /* OCInterviewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewUITests.m; sourceTree = "<group>"; };
-		94BC49FD26922879009B15E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE48187026D87EE900E66873 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +102,7 @@
 		94BC49D326922876009B15E9 /* OCInterview */ = {
 			isa = PBXGroup;
 			children = (
+				FE48187026D87EE900E66873 /* Info.plist */,
 				94BC49D426922876009B15E9 /* AppDelegate.h */,
 				94BC49D526922876009B15E9 /* AppDelegate.m */,
 				94BC49D726922876009B15E9 /* SceneDelegate.h */,
@@ -113,7 +112,6 @@
 				94BC49DD26922876009B15E9 /* Main.storyboard */,
 				94BC49E026922879009B15E9 /* Assets.xcassets */,
 				94BC49E226922879009B15E9 /* LaunchScreen.storyboard */,
-				94BC49E526922879009B15E9 /* Info.plist */,
 				94BC49E626922879009B15E9 /* main.m */,
 			);
 			path = OCInterview;
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				94BC49F026922879009B15E9 /* OCInterviewTests.m */,
-				94BC49F226922879009B15E9 /* Info.plist */,
 			);
 			path = OCInterviewTests;
 			sourceTree = "<group>";
@@ -132,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				94BC49FB26922879009B15E9 /* OCInterviewUITests.m */,
-				94BC49FD26922879009B15E9 /* Info.plist */,
 			);
 			path = OCInterviewUITests;
 			sourceTree = "<group>";
