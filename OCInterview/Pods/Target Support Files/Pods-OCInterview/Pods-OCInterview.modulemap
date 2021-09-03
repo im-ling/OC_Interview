@@ -1,0 +1,6 @@
+framework module Pods_OCInterview {
+  umbrella header "Pods-OCInterview-umbrella.h"
+
+  export *
+  module * { export * }
+}
