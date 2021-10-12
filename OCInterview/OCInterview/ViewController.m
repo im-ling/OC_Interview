@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-
+#import "DrawView.h"
 @interface ViewController ()
 
 @end
@@ -15,7 +15,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    NSString *str = @"123";
+    printf("%s", __func__ );
+//    DrawView *view = [[DrawView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    [self.view addSubview:view];
+//    view.center = self.view.center;
 }
 
 
