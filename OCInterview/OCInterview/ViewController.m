@@ -40,17 +40,22 @@
     [super viewDidLoad];
     
     queue = [[WBLPriorityQueue alloc] init];
-    for (int i = 0; i < 100; i++) {
-        [queue pushObject:[[TestObj alloc] initWithWeight:i] withWeight:i];
+    for (int i = 0; i < 10; i++) {
+        int number = 3 * i % 10;
+        NSLog(@"push %d", number);
+        [queue pushObject:[[TestObj alloc] initWithWeight: number] withWeight: number];
     }
-    while (queue.count > 10) {
+    NSLog(@"-----");
+    while (queue.count > 5) {
         @autoreleasepool {
             NSLog(@"%d", [[queue pop] weight]);
         }
     }
+    NSLog(@"-----");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"1111");
         self->queue = nil;
+        NSLog(@"-----");
     });
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
