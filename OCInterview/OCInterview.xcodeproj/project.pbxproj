@@ -16,6 +16,7 @@
 		94BC49E726922879009B15E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49E626922879009B15E9 /* main.m */; };
 		94BC49F126922879009B15E9 /* OCInterviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49F026922879009B15E9 /* OCInterviewTests.m */; };
 		94BC49FC26922879009B15E9 /* OCInterviewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49FB26922879009B15E9 /* OCInterviewUITests.m */; };
+		FE83A09B273A50280061B209 /* WBLPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = FE83A09A273A50280061B209 /* WBLPriorityQueue.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		94BC49F726922879009B15E9 /* OCInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49FB26922879009B15E9 /* OCInterviewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewUITests.m; sourceTree = "<group>"; };
 		FE48187026D87EE900E66873 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE83A099273A50280061B209 /* WBLPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBLPriorityQueue.h; sourceTree = "<group>"; };
+		FE83A09A273A50280061B209 /* WBLPriorityQueue.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WBLPriorityQueue.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				94BC49D826922876009B15E9 /* SceneDelegate.m */,
 				94BC49DA26922876009B15E9 /* ViewController.h */,
 				94BC49DB26922876009B15E9 /* ViewController.m */,
+				FE83A099273A50280061B209 /* WBLPriorityQueue.h */,
+				FE83A09A273A50280061B209 /* WBLPriorityQueue.mm */,
 				94BC49DD26922876009B15E9 /* Main.storyboard */,
 				94BC49E026922879009B15E9 /* Assets.xcassets */,
 				94BC49E226922879009B15E9 /* LaunchScreen.storyboard */,
@@ -263,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BC49DC26922876009B15E9 /* ViewController.m in Sources */,
+				FE83A09B273A50280061B209 /* WBLPriorityQueue.mm in Sources */,
 				94BC49D626922876009B15E9 /* AppDelegate.m in Sources */,
 				94BC49E726922879009B15E9 /* main.m in Sources */,
 				94BC49D926922876009B15E9 /* SceneDelegate.m in Sources */,
