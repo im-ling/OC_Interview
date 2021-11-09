@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 //- (void)addObject: (id)obj value: (unsigned)val;
 - (void)pushObject: (id)obj withWeight: (unsigned)val;
 - (id)pop;
+- (id)top;
+- (BOOL)isEmpty;
 
 @end
 

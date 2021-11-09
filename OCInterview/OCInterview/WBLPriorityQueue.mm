@@ -62,8 +62,19 @@ public:
 
 - (id)pop
 {
+    if ([self isEmpty]) return nil;
     id temp = _priority_queue.top().obj;
     _priority_queue.pop();
     return temp;
 }
+
+- (id)top{
+    if ([self isEmpty]) return nil;
+    return _priority_queue.top().obj;
+}
+
+- (BOOL)isEmpty{
+    return _priority_queue.size() == 0;
+}
+
 @end
