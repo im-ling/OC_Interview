@@ -1,6 +1,6 @@
 //
 //  WBLPriorityQueue.m
-//  
+//
 //  Created by liling on 2021/11/9.
 //
 
@@ -11,22 +11,25 @@
 #import "WBLPriorityQueue.h"
 
 @interface WBLPriorityNode : NSObject
+
 @property (nonatomic,strong) id obj;
-@property (nonatomic,assign) unsigned int weight;
-+ (instancetype)initWithObj:(id)obj weight:(unsigned)weight;
+@property (nonatomic,assign) int weight;
+
++ (instancetype)initWithObj:(id)obj weight:(int)weight;
+
 @end
 
 @implementation WBLPriorityNode
-+ (instancetype)initWithObj:(id)obj weight:(unsigned)weight{
+
++ (instancetype)initWithObj:(id)obj weight:(int)weight{
     WBLPriorityNode *node = [[WBLPriorityNode alloc] init];
     node.obj = obj;
     node.weight = weight;
     return node;
 }
-- (void)dealloc{
-    NSLog(@"%s, %d", __func__, self.weight);
-}
+
 @end
+
 
 class WBLPriorityNodeCompare {
 public:
@@ -41,7 +44,6 @@ public:
 }
 
 #pragma mark -
-
 - (instancetype)init{
     if (self = [super init]) {
         std::priority_queue<WBLPriorityNode *, std::vector<WBLPriorityNode *>, WBLPriorityNodeCompare> pq;
@@ -50,18 +52,16 @@ public:
     return self;
 }
 
-- (unsigned int)count
-{
+- (unsigned int)count{
     return (unsigned int) _priority_queue.size();
 }
 
-- (void)pushObject: (id)obj withWeight: (unsigned)weight{
+- (void)pushObject: (id)obj withWeight:(int)weight{
     WBLPriorityNode *node = [WBLPriorityNode initWithObj:obj weight:weight];
     _priority_queue.push(node);
 }
 
-- (id)pop
-{
+- (id)pop{
     if ([self isEmpty]) return nil;
     id temp = _priority_queue.top().obj;
     _priority_queue.pop();

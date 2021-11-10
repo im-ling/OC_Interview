@@ -11,11 +11,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WBLPriorityQueue : NSObject
 
 - (instancetype)init;
+
 - (unsigned)count;
-//- (void)addObject: (id)obj value: (unsigned)val;
-- (void)pushObject: (id)obj withWeight: (unsigned)val;
+
+- (void)pushObject: (id)obj withWeight: (int)val;
+
 - (id)pop;
+
 - (id)top;
+
 - (BOOL)isEmpty;
 
 @end
