@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		277BCFEE43FC36351109731B /* libPods-OCInterview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3B42CD34A58D21771DF1CA /* libPods-OCInterview.a */; };
+		3D8D67DE2758BC5E00961B90 /* wbl_lottie_countdown.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D67DC2758BC5E00961B90 /* wbl_lottie_countdown.json */; };
+		3D8D67EF2758C36800961B90 /* wbl_lottie_countdown_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D67EC2758C36800961B90 /* wbl_lottie_countdown_1.png */; };
+		3D8D67F02758C36800961B90 /* wbl_lottie_countdown_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D67ED2758C36800961B90 /* wbl_lottie_countdown_2.png */; };
+		3D8D67F12758C36800961B90 /* wbl_lottie_countdown_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D67EE2758C36800961B90 /* wbl_lottie_countdown_3.png */; };
 		94BC49D626922876009B15E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49D526922876009B15E9 /* AppDelegate.m */; };
 		94BC49D926922876009B15E9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49D826922876009B15E9 /* SceneDelegate.m */; };
 		94BC49DC26922876009B15E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49DB26922876009B15E9 /* ViewController.m */; };
@@ -16,6 +21,8 @@
 		94BC49E726922879009B15E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49E626922879009B15E9 /* main.m */; };
 		94BC49F126922879009B15E9 /* OCInterviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49F026922879009B15E9 /* OCInterviewTests.m */; };
 		94BC49FC26922879009B15E9 /* OCInterviewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BC49FB26922879009B15E9 /* OCInterviewUITests.m */; };
+		D19DC94BE27B4D2124B19445 /* libPods-OCInterviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E729BD8E568DCA3FFF69BF /* libPods-OCInterviewTests.a */; };
+		D7ADE37D197924C1BB70B55F /* libPods-OCInterview-OCInterviewUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5088FD03A98F8D3ACB23D0B /* libPods-OCInterview-OCInterviewUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06EC07B57537C1528858E06E /* Pods-OCInterview-OCInterviewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterview-OCInterviewUITests.release.xcconfig"; path = "Target Support Files/Pods-OCInterview-OCInterviewUITests/Pods-OCInterview-OCInterviewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		26E729BD8E568DCA3FFF69BF /* libPods-OCInterviewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCInterviewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D8D67DC2758BC5E00961B90 /* wbl_lottie_countdown.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wbl_lottie_countdown.json; sourceTree = "<group>"; };
+		3D8D67EC2758C36800961B90 /* wbl_lottie_countdown_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wbl_lottie_countdown_1.png; sourceTree = "<group>"; };
+		3D8D67ED2758C36800961B90 /* wbl_lottie_countdown_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wbl_lottie_countdown_2.png; sourceTree = "<group>"; };
+		3D8D67EE2758C36800961B90 /* wbl_lottie_countdown_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wbl_lottie_countdown_3.png; sourceTree = "<group>"; };
+		43D7373639267A2449C98381 /* Pods-OCInterviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterviewTests.release.xcconfig"; path = "Target Support Files/Pods-OCInterviewTests/Pods-OCInterviewTests.release.xcconfig"; sourceTree = "<group>"; };
+		77CF576E433FD897DD51923F /* Pods-OCInterviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterviewTests.debug.xcconfig"; path = "Target Support Files/Pods-OCInterviewTests/Pods-OCInterviewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		858949BD993342759CC804B0 /* Pods-OCInterview-OCInterviewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterview-OCInterviewUITests.debug.xcconfig"; path = "Target Support Files/Pods-OCInterview-OCInterviewUITests/Pods-OCInterview-OCInterviewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D0B165AE402C51784BEE61C /* Pods-OCInterview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterview.release.xcconfig"; path = "Target Support Files/Pods-OCInterview/Pods-OCInterview.release.xcconfig"; sourceTree = "<group>"; };
 		94BC49D126922876009B15E9 /* OCInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49D426922876009B15E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94BC49D526922876009B15E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +68,9 @@
 		94BC49F026922879009B15E9 /* OCInterviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewTests.m; sourceTree = "<group>"; };
 		94BC49F726922879009B15E9 /* OCInterviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCInterviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BC49FB26922879009B15E9 /* OCInterviewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCInterviewUITests.m; sourceTree = "<group>"; };
+		9E3B42CD34A58D21771DF1CA /* libPods-OCInterview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCInterview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1383439A4249C51AD7F239 /* Pods-OCInterview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCInterview.debug.xcconfig"; path = "Target Support Files/Pods-OCInterview/Pods-OCInterview.debug.xcconfig"; sourceTree = "<group>"; };
+		E5088FD03A98F8D3ACB23D0B /* libPods-OCInterview-OCInterviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCInterview-OCInterviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE48187026D87EE900E66873 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277BCFEE43FC36351109731B /* libPods-OCInterview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19DC94BE27B4D2124B19445 /* libPods-OCInterviewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7ADE37D197924C1BB70B55F /* libPods-OCInterview-OCInterviewUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +109,8 @@
 				94BC49EF26922879009B15E9 /* OCInterviewTests */,
 				94BC49FA26922879009B15E9 /* OCInterviewUITests */,
 				94BC49D226922876009B15E9 /* Products */,
+				D274967BCF34E464541C72D7 /* Pods */,
+				9A7AA82CB368C37F996E0E62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +127,10 @@
 		94BC49D326922876009B15E9 /* OCInterview */ = {
 			isa = PBXGroup;
 			children = (
+				3D8D67DC2758BC5E00961B90 /* wbl_lottie_countdown.json */,
+				3D8D67EC2758C36800961B90 /* wbl_lottie_countdown_1.png */,
+				3D8D67ED2758C36800961B90 /* wbl_lottie_countdown_2.png */,
+				3D8D67EE2758C36800961B90 /* wbl_lottie_countdown_3.png */,
 				FE48187026D87EE900E66873 /* Info.plist */,
 				94BC49D426922876009B15E9 /* AppDelegate.h */,
 				94BC49D526922876009B15E9 /* AppDelegate.m */,
@@ -133,6 +162,29 @@
 			path = OCInterviewUITests;
 			sourceTree = "<group>";
 		};
+		9A7AA82CB368C37F996E0E62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E3B42CD34A58D21771DF1CA /* libPods-OCInterview.a */,
+				E5088FD03A98F8D3ACB23D0B /* libPods-OCInterview-OCInterviewUITests.a */,
+				26E729BD8E568DCA3FFF69BF /* libPods-OCInterviewTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D274967BCF34E464541C72D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC1383439A4249C51AD7F239 /* Pods-OCInterview.debug.xcconfig */,
+				8D0B165AE402C51784BEE61C /* Pods-OCInterview.release.xcconfig */,
+				858949BD993342759CC804B0 /* Pods-OCInterview-OCInterviewUITests.debug.xcconfig */,
+				06EC07B57537C1528858E06E /* Pods-OCInterview-OCInterviewUITests.release.xcconfig */,
+				77CF576E433FD897DD51923F /* Pods-OCInterviewTests.debug.xcconfig */,
+				43D7373639267A2449C98381 /* Pods-OCInterviewTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94BC4A0026922879009B15E9 /* Build configuration list for PBXNativeTarget "OCInterview" */;
 			buildPhases = (
+				A2C4BEA327B8A75E139E4963 /* [CP] Check Pods Manifest.lock */,
 				94BC49CD26922876009B15E9 /* Sources */,
 				94BC49CE26922876009B15E9 /* Frameworks */,
 				94BC49CF26922876009B15E9 /* Resources */,
@@ -157,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94BC4A0326922879009B15E9 /* Build configuration list for PBXNativeTarget "OCInterviewTests" */;
 			buildPhases = (
+				CF68A58239516F2DEDD2348F /* [CP] Check Pods Manifest.lock */,
 				94BC49E826922879009B15E9 /* Sources */,
 				94BC49E926922879009B15E9 /* Frameworks */,
 				94BC49EA26922879009B15E9 /* Resources */,
@@ -175,6 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94BC4A0626922879009B15E9 /* Build configuration list for PBXNativeTarget "OCInterviewUITests" */;
 			buildPhases = (
+				78F857EA8B7A9C5E92D99C20 /* [CP] Check Pods Manifest.lock */,
 				94BC49F326922879009B15E9 /* Sources */,
 				94BC49F426922879009B15E9 /* Frameworks */,
 				94BC49F526922879009B15E9 /* Resources */,
@@ -236,8 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BC49E426922879009B15E9 /* LaunchScreen.storyboard in Resources */,
+				3D8D67DE2758BC5E00961B90 /* wbl_lottie_countdown.json in Resources */,
 				94BC49E126922879009B15E9 /* Assets.xcassets in Resources */,
+				3D8D67F02758C36800961B90 /* wbl_lottie_countdown_2.png in Resources */,
+				3D8D67F12758C36800961B90 /* wbl_lottie_countdown_3.png in Resources */,
 				94BC49DF26922876009B15E9 /* Main.storyboard in Resources */,
+				3D8D67EF2758C36800961B90 /* wbl_lottie_countdown_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +315,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78F857EA8B7A9C5E92D99C20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OCInterview-OCInterviewUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2C4BEA327B8A75E139E4963 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OCInterview-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF68A58239516F2DEDD2348F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OCInterviewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94BC49CD26922876009B15E9 /* Sources */ = {
@@ -434,6 +562,7 @@
 		};
 		94BC4A0126922879009B15E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1383439A4249C51AD7F239 /* Pods-OCInterview.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +580,7 @@
 		};
 		94BC4A0226922879009B15E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D0B165AE402C51784BEE61C /* Pods-OCInterview.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -468,6 +598,7 @@
 		};
 		94BC4A0426922879009B15E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77CF576E433FD897DD51923F /* Pods-OCInterviewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -487,6 +618,7 @@
 		};
 		94BC4A0526922879009B15E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43D7373639267A2449C98381 /* Pods-OCInterviewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +638,7 @@
 		};
 		94BC4A0726922879009B15E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 858949BD993342759CC804B0 /* Pods-OCInterview-OCInterviewUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OCInterviewUITests/Info.plist;
@@ -523,6 +656,7 @@
 		};
 		94BC4A0826922879009B15E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06EC07B57537C1528858E06E /* Pods-OCInterview-OCInterviewUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OCInterviewUITests/Info.plist;
