@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #import "WBLPriorityQueue.h"
+#import <pthread/pthread.h>
 
 @interface WBLPriorityNode : NSObject
 
@@ -41,6 +42,7 @@ public:
 
 @implementation WBLPriorityQueue{
     std::priority_queue<WBLPriorityNode *, std::vector<WBLPriorityNode *>, WBLPriorityNodeCompare>_priority_queue;
+    pthread_rwlock_t rwlock;
 }
 
 #pragma mark -
@@ -48,33 +50,50 @@ public:
     if (self = [super init]) {
         std::priority_queue<WBLPriorityNode *, std::vector<WBLPriorityNode *>, WBLPriorityNodeCompare> pq;
         _priority_queue = pq;
+        pthread_rwlock_init(&rwlock,NULL);
     }
     return self;
 }
 
 - (unsigned int)count{
-    return (unsigned int) _priority_queue.size();
+    pthread_rwlock_rdlock(&rwlock);
+    unsigned int result = (unsigned int) _priority_queue.size();
+    pthread_rwlock_unlock(&rwlock);
+    return result;
 }
 
 - (void)pushObject: (id)obj withWeight:(int)weight{
+    pthread_rwlock_wrlock(&rwlock);
     WBLPriorityNode *node = [WBLPriorityNode initWithObj:obj weight:weight];
     _priority_queue.push(node);
+    pthread_rwlock_unlock(&rwlock);
 }
 
 - (id)pop{
     if ([self isEmpty]) return nil;
-    id temp = _priority_queue.top().obj;
+    pthread_rwlock_wrlock(&rwlock);
+    id result = _priority_queue.top().obj;
     _priority_queue.pop();
-    return temp;
+    pthread_rwlock_unlock(&rwlock);
+    return result;
 }
 
 - (id)top{
     if ([self isEmpty]) return nil;
-    return _priority_queue.top().obj;
+    pthread_rwlock_rdlock(&rwlock);
+    id result = _priority_queue.top().obj;
+    pthread_rwlock_unlock(&rwlock);
+    return result;
 }
 
 - (BOOL)isEmpty{
-    return _priority_queue.size() == 0;
+    pthread_rwlock_rdlock(&rwlock);
+    BOOL result = _priority_queue.size() == 0;
+    pthread_rwlock_unlock(&rwlock);
+    return result;
 }
 
+- (void)dealloc{
+    pthread_rwlock_destroy(&rwlock);
+}
 @end
