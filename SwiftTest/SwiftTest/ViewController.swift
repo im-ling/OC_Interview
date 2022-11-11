@@ -9,37 +9,34 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-        if let QRFilter = CIFilter(name: "CIQRCodeGenerator") {
-            QRFilter.setValue(data, forKey: "inputMessage")
-            guard let QRImage = QRFilter.outputImage else {return nil}
-            return UIImage(ciImage: QRImage)
-        }
-        return nil
-    }
-    
-    var QRCodeImageView = UIImageView.init()
-    
-    
-    func testShowQRCode() {
-        let testUrl = "https://www.baidu.com/"
-        if let image = generateQRCode(from: testUrl) {
-            view.addSubview(QRCodeImageView)
-            let sideLength = UIScreen.main.bounds.size.width
-            QRCodeImageView.image = image
-            QRCodeImageView.bounds = CGRect(x: 0, y: 0, width: sideLength, height: sideLength)
-            QRCodeImageView.center = view.center
-            
-            // 防止放大后不清晰
-            QRCodeImageView.layer.magnificationFilter = CALayerContentsFilter.nearest
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        testShowQRCode()
+        
+        let btn = UIButton(frame: CGRect(x: 0, y: view.frame.height * 0.5 - 100, width: 200, height: 50))
+        btn.center.x = view.center.x
+        btn.setTitle("Generate QR code", for: UIControl.State.normal)
+        btn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(goGenerateQRCodeVc), for: UIControl.Event.touchUpInside)
+        view.addSubview(btn)
+        
+        let scanBtn = UIButton(frame: CGRect(x: 0, y: view.frame.height * 0.5 + 100, width: 200, height: 50))
+        scanBtn.center.x = view.center.x
+        scanBtn.setTitle("Scan QR code", for: UIControl.State.normal)
+        scanBtn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        scanBtn.addTarget(self, action: #selector(goScanQRCodeVc), for: UIControl.Event.touchUpInside)
+        view.addSubview(scanBtn)
+    }
+    
+    @objc func goGenerateQRCodeVc(){
+        let vc = GenerateQRCodeViewController.init()
+        vc.QRCodeString = "https://cn.bing.com/"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func goScanQRCodeVc(){
+        let vc = ScanQRCodeViewController.init()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 
