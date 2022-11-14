@@ -11,8 +11,11 @@ import AVFoundation
 class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var resultLabel = UILabel.init(frame: CGRect(x: 0, y: 100, width: 0, height: 0))
-
+    
+    var completeBlock:((_ result: String) -> Void) = { (result: String)  in
+        print("Hey there, \(result).")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,10 +57,6 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         view.layer.addSublayer(previewLayer)
 
         captureSession.startRunning()
-        
-        view.addSubview(resultLabel)
-        resultLabel.center.x = view.center.x
-        resultLabel.textColor = UIColor.systemBlue
     }
 
     func failed() {
@@ -93,13 +92,12 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             found(code: stringValue)
         }
 
+        self.navigationController?.popViewController(animated: true)
 //        dismiss(animated: true)
     }
 
     func found(code: String) {
-        print(code)
-        resultLabel.text = code
-        resultLabel.sizeToFit()
+        completeBlock(code)
     }
 
     override var prefersStatusBarHidden: Bool {
