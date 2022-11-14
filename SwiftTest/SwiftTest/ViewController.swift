@@ -13,19 +13,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        let btn = UIButton(frame: CGRect(x: 0, y: view.frame.height * 0.5 - 100, width: 200, height: 50))
-        btn.center.x = view.center.x
-        btn.setTitle("Generate QR code", for: UIControl.State.normal)
-        btn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
-        btn.addTarget(self, action: #selector(goGenerateQRCodeVc), for: UIControl.Event.touchUpInside)
-        view.addSubview(btn)
+        view.addSubview(generateBtn)
+        generateBtn.frame = CGRect(x: 0, y: view.frame.height * 0.5 - 100, width: 200, height: 50)
+        generateBtn.center.x = view.center.x
         
-        let scanBtn = UIButton(frame: CGRect(x: 0, y: view.frame.height * 0.5 + 100, width: 200, height: 50))
-        scanBtn.center.x = view.center.x
-        scanBtn.setTitle("Scan QR code", for: UIControl.State.normal)
-        scanBtn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
-        scanBtn.addTarget(self, action: #selector(goScanQRCodeVc), for: UIControl.Event.touchUpInside)
         view.addSubview(scanBtn)
+        scanBtn.frame = CGRect(x: 0, y: view.frame.height * 0.5 + 100, width: 200, height: 50)
+        scanBtn.center.x = view.center.x
     }
     
     @objc func goGenerateQRCodeVc(){
@@ -39,5 +33,26 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    // MARK: - LAZY LOAD
+    lazy var generateBtn: UIButton = {
+        var btn = UIButton.init()
+        btn.setTitle("Generate QR code", for: UIControl.State.normal)
+        btn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(goGenerateQRCodeVc), for: UIControl.Event.touchUpInside)
+        return btn
+    }()
+    
+    lazy var scanBtn: UIButton = {
+        var btn = UIButton.init()
+        btn.setTitle("Scan QR code", for: UIControl.State.normal)
+        btn.setTitleColor(UIColor.systemBlue, for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(goScanQRCodeVc), for: UIControl.Event.touchUpInside)
+        return btn
+    }()
+    
+    lazy var resultLabel: UILabel = {
+        var label: UILabel = UILabel()
+        return label
+    }()
 
 }
