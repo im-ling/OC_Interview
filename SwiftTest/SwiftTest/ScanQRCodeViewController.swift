@@ -10,7 +10,7 @@ import AVFoundation
 
 let iconWidth = 50.0
 
-class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -23,16 +23,20 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         view.backgroundColor = UIColor.black
         setUpQRSession()
-
-        
-        let btn = UIButton.init()
-        btn.backgroundColor = UIColor.init(white: 0.9, alpha: 0.4)
-        btn.layer.cornerRadius = 10
-        btn.layer.masksToBounds = true
+        setupBtns()
+    }
+    
+    func setupBtns() -> Void {
+                
+        let btn = generateBtn(imageName: "flash_light")
         view.addSubview(btn)
         btn.frame = CGRect(x: 50, y: view.bounds.size.height * 0.7, width: iconWidth, height: iconWidth)
-        btn.setImage(UIImage.init(named: "flash_light"), for: UIControl.State.normal)
         btn.addTarget(self, action: #selector(toggleFlash), for: UIControl.Event.touchUpInside)
+    
+        let photosBtn = generateBtn(imageName: "photos")
+        view.addSubview(photosBtn)
+        photosBtn.frame = CGRect(x: view.bounds.size.width - 50.0 - iconWidth, y: view.bounds.size.height * 0.7, width: iconWidth, height: iconWidth)
+        photosBtn.addTarget(self, action: #selector(selectImageFromPhotos), for: UIControl.Event.touchUpInside)
     }
 
 
@@ -119,12 +123,21 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             found(code: stringValue)
         }
 
-        self.navigationController?.popViewController(animated: true)
 //        dismiss(animated: true)
     }
 
     func found(code: String) {
-        completeBlock(code)
+        getQRCodeSuccess(message: code)
+    }
+    
+    func getQRCodeSuccess(message: String) {
+        completeBlock(message)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func getQRCodeFailed () {
+        completeBlock("Couldn't recognize QR Code")
+        self.navigationController?.popViewController(animated: true)
     }
 
 
@@ -151,4 +164,76 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             print(error)
         }
     }
+    
+    // MARK: - photos
+    var imagePicker = UIImagePickerController()
+
+    @objc func selectImageFromPhotos() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+
+            present(imagePicker, animated: true, completion: nil)
+        }
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("select image")
+        self.dismiss(animated: true, completion: { () -> Void in
+
+        })
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            getQRCodeFailed()
+            return
+//            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+//        pickImageCallback?(image)
+        if let features = detectQRCode(image), !features.isEmpty{
+            for case let row as CIQRCodeFeature in features{
+                if row.messageString != nil {
+                    getQRCodeSuccess(message: row.messageString!)
+                    return
+                }
+            }
+        }
+        
+        getQRCodeFailed()
+    }
+    
+    
+    func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
+        if let image = image, let ciImage = CIImage.init(image: image){
+            var options: [String: Any]
+            let context = CIContext()
+            options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+            let qrDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: options)
+            if ciImage.properties.keys.contains((kCGImagePropertyOrientation as String)){
+                options = [CIDetectorImageOrientation: ciImage.properties[(kCGImagePropertyOrientation as String)] ?? 1]
+            } else {
+                options = [CIDetectorImageOrientation: 1]
+            }
+            let features = qrDetector?.features(in: ciImage, options: options)
+            return features
+
+        }
+        return nil
+    }
+    
+    // MARK: lazy load
+    func generateBtn(imageName: String) -> UIButton {
+        let edgeLen = 13.0
+        let btn = UIButton.init()
+        btn.backgroundColor = UIColor.init(white: 0.9, alpha: 0.4)
+        btn.layer.cornerRadius = iconWidth * 0.5
+        btn.layer.masksToBounds = true
+        btn.setImage(UIImage.init(named: imageName), for: UIControl.State.normal)
+        btn.imageEdgeInsets = UIEdgeInsets.init(top: edgeLen, left: edgeLen, bottom: edgeLen, right: edgeLen)
+        return btn
+    }
+
 }
