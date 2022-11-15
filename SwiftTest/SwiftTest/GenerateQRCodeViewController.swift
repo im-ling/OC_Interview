@@ -44,6 +44,7 @@ class GenerateQRCodeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         testShowQRCode()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
 

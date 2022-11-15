@@ -27,16 +27,21 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func setupBtns() -> Void {
+        
+        let interval = 30.0
+        let height = view.bounds.size.height - iconWidth - 80
                 
         let btn = generateBtn(imageName: "flash_light")
         view.addSubview(btn)
-        btn.frame = CGRect(x: 50, y: view.bounds.size.height * 0.7, width: iconWidth, height: iconWidth)
+        btn.frame = CGRect(x: interval, y: height, width: iconWidth, height: iconWidth)
         btn.addTarget(self, action: #selector(toggleFlash), for: UIControl.Event.touchUpInside)
     
         let photosBtn = generateBtn(imageName: "photos")
         view.addSubview(photosBtn)
-        photosBtn.frame = CGRect(x: view.bounds.size.width - 50.0 - iconWidth, y: view.bounds.size.height * 0.7, width: iconWidth, height: iconWidth)
+        photosBtn.frame = CGRect(x: view.bounds.size.width - interval - iconWidth, y: height, width: iconWidth, height: iconWidth)
         photosBtn.addTarget(self, action: #selector(selectImageFromPhotos), for: UIControl.Event.touchUpInside)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.close, target: self , action: #selector(back))
     }
 
 
@@ -55,6 +60,9 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
         }
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +71,10 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
+    }
+    
+    @objc func back(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - QR SCAN

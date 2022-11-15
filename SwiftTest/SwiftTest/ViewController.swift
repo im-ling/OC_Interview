@@ -30,6 +30,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         resultLabel.center.x = view.center.x
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @objc func goGenerateQRCodeVc(){
         let vc = GenerateQRCodeViewController.init()
         vc.QRCodeString = self.inputWidget.text ?? "www.baidu.com"
