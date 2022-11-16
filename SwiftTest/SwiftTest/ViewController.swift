@@ -37,14 +37,16 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     @objc func goGenerateQRCodeVc(){
         let vc = GenerateQRCodeViewController.init()
-        vc.QRCodeString = self.inputWidget.text ?? "www.baidu.com"
+        let originalString = self.inputWidget.text ?? "www.baidu.com"
+        let escapedString = originalString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        vc.QRCodeString = escapedString ?? "www.baidu.com"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func goScanQRCodeVc(){
         let vc = ScanQRCodeViewController.init()
         vc.completeBlock = {[weak self] result in
-            self?.resultLabel.text = result
+            self?.resultLabel.text = result.removingPercentEncoding
             self?.resultLabel.sizeToFit()
         }
         self.navigationController?.pushViewController(vc, animated: true)
@@ -83,6 +85,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     lazy var resultLabel: UILabel = {
         var label: UILabel = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
