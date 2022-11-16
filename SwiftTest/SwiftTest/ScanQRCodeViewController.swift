@@ -25,6 +25,16 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         setUpQRSession()
         setupScanAnimationView()
         setupBtns()
+        NotificationCenter.default.addObserver(self, selector: #selector(startScanAnimation), name: UIApplication.didBecomeActiveNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(startScanAnimation), name: UIApplication.willEnterForegroundNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(startScanAnimation), name: .NSExtensionHostDidBecomeActive, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(endScanAnimation), name: .NSExtensionHostDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(endScanAnimation), name: UIApplication.willResignActiveNotification, object: nil)
+
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setupBtns() -> Void {
@@ -221,7 +231,6 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         getQRCodeFailed()
     }
     
-    
     func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
         if let image = image, let ciImage = CIImage.init(image: image){
             var options: [String: Any]
@@ -257,7 +266,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         var view = UIView.init()
         view.backgroundColor = UIColor.systemGreen
         view.alpha = 0.5
-        view.isHidden = false
+        view.isHidden = true
         return view
     }()
     
@@ -274,16 +283,11 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         shapeLayerBgView.frame = scanbgView.bounds
     }
     
-    func startScanAnimation() -> Void {
+    @objc func startScanAnimation() -> Void {
         let width = view.bounds.size.width * 0.8
         let x_offset = (view.bounds.size.width - width) * 0.5
         let y_offset = view.bounds.size.height * 0.5 - width * 0.5;
 
-        
-        if (shapeLayer.superlayer != nil) {
-            shapeLayer.removeFromSuperlayer()
-        }
-        
         let overlayPath = UIBezierPath.init(rect: scanbgView.bounds)
         let transparentRect = CGRect(x: x_offset, y: y_offset, width: width, height: width)
         let transparentPath = UIBezierPath.init(rect: transparentRect).reversing()
@@ -301,6 +305,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
 
         greenLineView.frame = CGRect(x: green_line_x_offset, y: green_line_y_offset, width: green_line_width, height: green_line_height)
         scanbgView.addSubview(greenLineView)
+        greenLineView.isHidden = false
         
         UIView.animate(withDuration: 3, delay: 0, options: .repeat) {
             self.greenLineView.center.y = green_line_end_y;
@@ -310,7 +315,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
     }
     
-    func endScanAnimation() -> Void {
+    @objc func endScanAnimation() -> Void {
         scanbgView.layer.removeAllAnimations()
         greenLineView.isHidden = true
     }
