@@ -10,7 +10,7 @@ import AVFoundation
 
 let iconWidth = 50.0
 
-class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -23,6 +23,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         view.backgroundColor = UIColor.black
         setUpQRSession()
+        setupScanAnimationView()
         setupBtns()
     }
     
@@ -63,6 +64,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
+        startScanAnimation()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +73,8 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
+        
+        endScanAnimation()
     }
     
     @objc func back(){
@@ -234,6 +238,81 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
 
         }
         return nil
+    }
+    
+    
+    // MARK: scan animation
+    lazy var scanbgView: UIView = {
+        var view = UIView.init()
+        return view
+    }()
+    
+    lazy var shapeLayerBgView: UIView = {
+        var view = UIView.init()
+        view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
+        return view
+    }()
+    
+    lazy var greenLineView: UIView = {
+        var view = UIView.init()
+        view.backgroundColor = UIColor.systemGreen
+        view.alpha = 0.5
+        view.isHidden = false
+        return view
+    }()
+    
+    lazy var shapeLayer: CAShapeLayer = {
+        var shape = CAShapeLayer.init()
+        return shape
+    }()
+
+    func setupScanAnimationView() -> Void {
+        view.addSubview(scanbgView)
+        scanbgView.frame = view.frame
+
+        scanbgView.addSubview(shapeLayerBgView)
+        shapeLayerBgView.frame = scanbgView.bounds
+    }
+    
+    func startScanAnimation() -> Void {
+        let width = view.bounds.size.width * 0.8
+        let x_offset = (view.bounds.size.width - width) * 0.5
+        let y_offset = view.bounds.size.height * 0.5 - width * 0.5;
+
+        
+        if (shapeLayer.superlayer != nil) {
+            shapeLayer.removeFromSuperlayer()
+        }
+        
+        let overlayPath = UIBezierPath.init(rect: scanbgView.bounds)
+        let transparentRect = CGRect(x: x_offset, y: y_offset, width: width, height: width)
+        let transparentPath = UIBezierPath.init(rect: transparentRect).reversing()
+        overlayPath.append(transparentPath)
+        shapeLayer.path = overlayPath.cgPath
+        shapeLayerBgView.layer.mask = shapeLayer
+
+        
+        let green_line_width = width * 0.8
+        let green_line_x_offset = (view.bounds.size.width - green_line_width) * 0.5
+        let green_line_y_offset = view.bounds.size.height * 0.5 - width * 0.5 + (width - green_line_width) * 0.5;
+        let green_line_height = green_line_width * 0.006
+        let green_line_end_y = view.bounds.size.height - green_line_y_offset;
+
+
+        greenLineView.frame = CGRect(x: green_line_x_offset, y: green_line_y_offset, width: green_line_width, height: green_line_height)
+        scanbgView.addSubview(greenLineView)
+        
+        UIView.animate(withDuration: 3, delay: 0, options: .repeat) {
+            self.greenLineView.center.y = green_line_end_y;
+        }completion: { result in
+        };
+        
+        
+    }
+    
+    func endScanAnimation() -> Void {
+        scanbgView.layer.removeAllAnimations()
+        greenLineView.isHidden = true
     }
     
     // MARK: lazy load
