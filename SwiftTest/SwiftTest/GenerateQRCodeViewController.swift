@@ -47,6 +47,16 @@ class GenerateQRCodeViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+    }
+    
 
     /*
     // MARK: - Navigation

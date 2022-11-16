@@ -67,6 +67,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
 
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
@@ -85,6 +86,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         endScanAnimation()
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
     }
     
     @objc func back(){

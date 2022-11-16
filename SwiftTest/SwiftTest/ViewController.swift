@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITextViewDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -33,6 +33,12 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
     }
     
     @objc func goGenerateQRCodeVc(){
